@@ -3,6 +3,7 @@ import { Layout } from "@/addons/Layout";
 import { generateOptions, generateUniqueOptions } from "@/addons/Randomizer";
 import { fetchDataFromApi } from "@/addons/useFetching";
 import { BoxCountry } from "@/components/findCountry/BoxCountry";
+import { Loader } from "@/components/findCountry/Loader";
 import { ModalAlert } from "@/components/findCountry/ModalAlert";
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -18,6 +19,7 @@ export default function Region() {
   const [countryFlag, setCountryFlag] = useState(null);
   const [options, setOptions] = useState([]);
   const [AdviserForReload, setAdviserForReload] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +42,7 @@ export default function Region() {
 
   useEffect(() => {
     if (dataFetching.length) {
+      setLoading(false);
       const countryOptions = generateOptions(dataFetching);
       setCountryFlag(countryOptions[0]);
       setOptions(countryOptions[1]);
@@ -77,34 +80,39 @@ export default function Region() {
 
   return (
     <>
-      {dataFetching && dataFetching.length > 0 && (
-        <FlagContext.Provider
-          value={{ countryFlag, options, handleOption, decodedModes }}
-        >
-          <ChakraProvider>
-            <Layout title={`Mundi Quest `}>
-              <Box
-                width={"100%"}
-                height={"100vh"}
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <BoxCountry />
-                <ModalAlert
-                  isOpen={AdviserForReload}
-                  AdviserForReload={AdviserForReload}
-                  onClose={() => {
-                    setAdviserForReload(false);
-                  }}
-                  title="Warning"
-                  msg="Dont reload the page, be a well player"
-                />
-              </Box>
-            </Layout>
-          </ChakraProvider>
-        </FlagContext.Provider>
-      )}
+      <ChakraProvider>
+        {loading ? (
+          <Loader />
+        ) : (
+          dataFetching &&
+          dataFetching.length > 0 && (
+            <FlagContext.Provider
+              value={{ countryFlag, options, handleOption, decodedModes }}
+            >
+              <Layout title={`Mundi Quest `}>
+                <Box
+                  width={"100%"}
+                  height={"100vh"}
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <BoxCountry />
+                  <ModalAlert
+                    isOpen={AdviserForReload}
+                    AdviserForReload={AdviserForReload}
+                    onClose={() => {
+                      setAdviserForReload(false);
+                    }}
+                    title="Warning"
+                    msg="Dont reload the page, be a well player"
+                  />
+                </Box>
+              </Layout>
+            </FlagContext.Provider>
+          )
+        )}
+      </ChakraProvider>
     </>
   );
 }
