@@ -10,7 +10,8 @@ const BoxCountry = () => {
   const router = useRouter();
 
   const { decodedModes, endpoint } = useContext(FlagContext);
-  const mode = JSON.parse(decodedModes);
+  let mode;
+  decodedModes ? (mode = JSON.parse(decodedModes)) : (mode = "");
   const tryAgain = true;
   const [gameOverModalOpen, setGameOverModalOpen] = useState(false);
   const [gameWonModalOpen, setGameWonModalOpen] = useState(false);

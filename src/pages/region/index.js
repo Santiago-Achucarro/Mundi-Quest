@@ -14,10 +14,6 @@ export default function Region() {
   const decodedEndpoint = decodeURIComponent(endpoint);
   const decodedModes = decodeURIComponent(modes);
 
-  if (decodedModes) {
-    const mode = JSON.parse(decodedModes);
-  }
-
   const [dataFetching, setDataFetching] = useState([]);
   const [countryFlag, setCountryFlag] = useState(null);
   const [options, setOptions] = useState([]);
