@@ -43,7 +43,7 @@ const BoxCountry = () => {
   return (
     <Box
       width={{ base: "100%", md: "80%", lg: "60%" }}
-      height="100%"
+      maxHeight="auto"
       display="flex"
       flexDir="column"
       justifyContent="center"

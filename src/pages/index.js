@@ -50,8 +50,8 @@ export default function Home() {
           alignItems={"center"}
         >
           <Box
-            width={{ base: "100%", xl: "45%", md: "45%" }}
-            height={{ base: "75%", xl: "50%", md: "70%" }}
+            width={{ base: "95%", xl: "45%", md: "45%", lg: "70%" }}
+            height={{ base: "65%", xl: "50%", md: "70%" }}
             backgroundColor="white"
             borderRadius={"10"}
             display={"flex"}
