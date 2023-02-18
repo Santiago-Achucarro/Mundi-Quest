@@ -6,6 +6,7 @@ const Layout = ({ children, title }) => {
     <>
       <Head>
         <title>{title}</title>
+        <link rel="shortcut icon" href="./icon-world.svg" type="image/x-icon" />
       </Head>
       {children}
     </>
