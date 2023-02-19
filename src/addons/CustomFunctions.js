@@ -1,5 +1,3 @@
-
-
 function RandomNumber(data) {
   let numbRandom = Math.floor(Math.random() * data.length);
   return numbRandom;
@@ -35,6 +33,5 @@ function generateUniqueOptions(dataFetching, exclude = []) {
   shuffle(noRepeat);
   return [countryFlag, noRepeat];
 }
-
 
 export { Randomizer, RandomNumber, generateOptions, generateUniqueOptions };

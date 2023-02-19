@@ -11,7 +11,7 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
-import { groupRegion, difficulties } from "@/addons/findRegion";
+import { groupRegion, difficulties } from "@/addons/MenuArrays";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Layout } from "@/addons/Layout";

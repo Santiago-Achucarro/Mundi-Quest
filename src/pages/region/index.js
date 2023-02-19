@@ -1,6 +1,9 @@
 import { FlagContext } from "@/addons/FlagContext";
 import { Layout } from "@/addons/Layout";
-import { generateOptions, generateUniqueOptions } from "@/addons/Randomizer";
+import {
+  generateOptions,
+  generateUniqueOptions,
+} from "@/addons/CustomFunctions";
 import { fetchDataFromApi } from "@/addons/useFetching";
 import { BoxCountry } from "@/components/findCountry/BoxCountry";
 import { Loader } from "@/components/findCountry/Loader";
