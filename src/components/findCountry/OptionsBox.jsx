@@ -23,10 +23,17 @@ const OptionsBox = () => {
                 }
                 borderRadius="10"
                 transition="0.3s all ease"
-                _hover={{
-                  backgroundColor: "grey",
-                  opacity: "0.2",
-                  transition: "0.3s all ease",
+                sx={{
+                  _hover: {
+                    backgroundColor: "white",
+                  },
+                  "@media (min-width: 767px)": {
+                    _hover: {
+                      backgroundColor: "grey",
+                      opacity: "0.6",
+                      transition: "0.3s all ease",
+                    },
+                  },
                 }}
                 value={item?.translations.spa.common}
                 onClick={(e) => {
